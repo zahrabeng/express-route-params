@@ -51,7 +51,7 @@ app.get("/multiply/:numOne/:numTwo", (req, res) => {
 });
 
 /**
- * `app.get` can receive a type parameter.
+ * `app.get` can take a type argument.
  * 
  *  This could be the name of an existing type (e.g. an interface)
  *    or a literal object type that is provided directly, as below.
@@ -62,7 +62,7 @@ app.get<{ name: string }>("/happy-birthday/:name", (req, res) => {
       "Happy birthday to you",
       "Happy birthday to you",
       /**
-       * The type parameter stops us from, e.g., the silly typo
+       * The type argument stops us from, e.g., the silly typo
        * of `req.params.namw` - try it, and see!
        */
       `Happy birthday dear ${req.params.name}`,
