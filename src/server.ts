@@ -25,14 +25,6 @@ app.get("/multiply/:numOne/:numTwo", (req, res) => {
   })
 });
 
-app.get("/shout/:sillyParamName", (req, res) => {
-  const shoutContent = req.params.sillyParamName.toUpperCase();
-  res.json({
-    echo: shoutContent,
-    message: `I am shouting back to you: ${shoutContent}`,
-  });
-});
-
 app.get<{ name: string }>("/happy-birthday/:name", (req, res) => {
   res.json({
     lyrics: [
