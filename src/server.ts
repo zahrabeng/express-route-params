@@ -29,7 +29,7 @@ app.get("/shout/:sillyParamName", (req, res) => {
   const shoutContent = req.params.sillyParamName.toUpperCase();
   res.json({
     echo: shoutContent,
-    message: `I am echoing back to you: ${shoutContent}`,
+    message: `I am shouting back to you: ${shoutContent}`,
   });
 });
 
