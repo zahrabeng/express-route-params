@@ -8,6 +8,24 @@ app.get("/", (req, res) => {
   });
 })
 
+app.get("/eat/apple", (req, res) => {
+  res.json({
+    message: "Yum yum - you ate an apple!",
+  });
+});
+
+app.get("/eat/banana", (req, res) => {
+  res.json({
+    message: "Yum yum - you ate a banana!",
+  });
+});
+
+app.get("/eat/carrot", (req, res) => {
+  res.json({
+    message: "Yum yum - you ate a carrot!",
+  });
+});
+
 app.get("/echo/:exampleRouteParameter", (req, res) => {
   const echoContent = req.params.exampleRouteParameter;
   res.json({
