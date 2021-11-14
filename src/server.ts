@@ -35,6 +35,13 @@ app.get("/echo/:exampleRouteParameter", (req, res) => {
 })
 
 app.get("/multiply/:numOne/:numTwo", (req, res) => {
+  /**
+   * Note that `numOne` and `numTwo` are both typed as string.
+   * (Hover over with your mouse to see!)
+   * 
+   * Route params are, by default, typed as strings when they
+   * are parsed by Express.
+   */
   const { numOne, numTwo } = req.params;
   const multiplication = parseInt(numOne) * parseInt(numTwo);
   res.json({
@@ -43,11 +50,21 @@ app.get("/multiply/:numOne/:numTwo", (req, res) => {
   })
 });
 
+/**
+ * `app.get` can receive a type parameter.
+ * 
+ *  This could be the name of an existing type (e.g. an interface)
+ *    or a literal object type that is provided directly, as below.
+ */
 app.get<{ name: string }>("/happy-birthday/:name", (req, res) => {
   res.json({
     lyrics: [
       "Happy birthday to you",
       "Happy birthday to you",
+      /**
+       * The type parameter stops us from, e.g., the silly typo
+       * of `req.params.namw` - try it, and see!
+       */
       `Happy birthday dear ${req.params.name}`,
       "Happy birthday to you!"
     ],
