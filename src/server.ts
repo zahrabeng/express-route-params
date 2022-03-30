@@ -59,6 +59,15 @@ app.get("/multiply/:numOne/:numTwo", (req, res) => {
   });
 });
 
+app.get("/add/:num1/:num2/:num3?" , (req, res)=>{
+  const {num1 , num2, num3} = req.params;
+  const addition = parseInt(num1) + parseInt(num2) + parseInt(num3);
+  res.json({
+    original: `${num1} + ${num2} + ${num3}`  ,
+    result: addition,
+  });
+});
+
 /**
  * `app.get` can take a type argument.
  *
