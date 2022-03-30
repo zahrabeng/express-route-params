@@ -34,7 +34,7 @@ app.get("/echo/:exampleRouteParameter", (req, res) => {
   });
 });
 
-app.get("/shout/:shout" , (req, res) => {
+app.get<{shout: string}>("/shout/:shout" , (req, res) => {
 const response = req.params.shout.toUpperCase()
 res.json({
   shout: response, 
