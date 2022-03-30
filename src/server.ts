@@ -34,6 +34,15 @@ app.get("/echo/:exampleRouteParameter", (req, res) => {
   });
 });
 
+app.get("/shout/:shout" , (req, res) => {
+const response = req.params.shout.toUpperCase()
+res.json({
+  shout: response, 
+  result:`I am shouting back to you ${response}`
+})
+})
+
+
 app.get("/multiply/:numOne/:numTwo", (req, res) => {
   /**
    * Note that `numOne` and `numTwo` are both typed as string.
