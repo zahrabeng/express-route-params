@@ -34,14 +34,13 @@ app.get("/echo/:exampleRouteParameter", (req, res) => {
   });
 });
 
-app.get<{shout: string}>("/shout/:shout" , (req, res) => {
-const response = req.params.shout.toUpperCase()
-res.json({
-  shout: response, 
-  result:`I am shouting back to you ${response}`
-})
-})
-
+app.get<{ shout: string }>("/shout/:shout", (req, res) => {
+  const response = req.params.shout.toUpperCase();
+  res.json({
+    shout: response,
+    result: `I am shouting back to you ${response}`,
+  });
+});
 
 app.get("/multiply/:numOne/:numTwo", (req, res) => {
   /**
@@ -59,12 +58,28 @@ app.get("/multiply/:numOne/:numTwo", (req, res) => {
   });
 });
 
-app.get("/add/:num1/:num2/:num3?" , (req, res)=>{
-  const {num1 , num2, num3} = req.params;
+app.get("/add/:num1/:num2/:num3?", (req, res) => {
+  const { num1, num2, num3 } = req.params;
   const addition = parseInt(num1) + parseInt(num2) + parseInt(num3);
   res.json({
-    original: `${num1} + ${num2} + ${num3}`  ,
+    original: `${num1} + ${num2} + ${num3}`,
     result: addition,
+  });
+});
+
+app.get("/eating/:food", (req, res) => {
+  const vowels = ["a", "e", "i", "o", "u"];
+  const foods = req.params.food.toLowerCase().split("");
+
+  function isVowel(yum: string[]):string {
+    if (vowels.includes(yum[0])) {
+      return `Yum yum - you ate an ${req.params.food}`;
+    } else {
+      return `Yum yum - you ate a ${req.params.food}`;
+    }
+  }
+  res.json({
+    message: isVowel(foods)
   });
 });
 
